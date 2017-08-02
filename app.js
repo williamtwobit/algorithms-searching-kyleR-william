@@ -154,3 +154,24 @@ const bst = new BinarySearchTree();
 // populateRandom(10, bst);
 // bst.insert()
 // console.log(dfs(bst, 5))
+
+
+function bfs(tree, values=[]){
+  const q = [tree];
+
+  while (q.length){
+    const node = q.shift();
+    values.push(node.key);
+
+    if(node.left){
+      q.push(node.left);
+    }
+
+    if(node.right){
+      q.push(node.right);
+    }
+  }
+  return values;
+}
+
+// console.log(bfs(bst));
