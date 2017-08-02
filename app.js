@@ -111,6 +111,15 @@ class BinarySearchTree{
   }
 }
 
+function populateRandom(count, tree){
+  for(let i=0; i<count; i++){
+    let num = i + Math.floor(Math.random() * 10);
+    console.log('inserting:', num);
+    tree.insert(num);
+  }
+//   console.log(testTree);
+}
+
 const myArr = [4,8,15,16,23,42];
 
 function binaryArrSearch(arr,input,startIndex=0,endIndex=arr.length){
@@ -128,3 +137,20 @@ function binaryArrSearch(arr,input,startIndex=0,endIndex=arr.length){
 }
 
 // console.log(binaryArrSearch(myArr, 23));
+
+function dfs(tree, val) {
+    if (tree.left) {
+        dfs(tree.left, val);
+    }
+    
+    console.log(tree.key);
+    
+    if (tree.right) {
+        dfs(tree.right, val);
+    }
+}
+
+const bst = new BinarySearchTree();
+// populateRandom(10, bst);
+// bst.insert()
+// console.log(dfs(bst, 5))
