@@ -196,9 +196,9 @@ function populateTree(valArr, tree){
   }
   // console.log('Tree: ', heightTree);
 }
-let str = '25 15 50 10 24 35 70 4 12 18 31 44 66 90 22';
-const arr = str.split(' ').map(n => Number(n));
-populateTree(arr, ex4Tree);
+// let str = '25 15 50 10 24 35 70 4 12 18 31 44 66 90 22';
+// const arr = str.split(' ').map(n => Number(n));
+// populateTree(arr, ex4Tree);
 
 function dfsPreOrder(tree, val) {
   console.log(tree.key);
@@ -230,13 +230,37 @@ function dfsPostOrder(tree, val) {
   }
   console.log(tree.key);
 }
-console.log('<<<<<<<<< PRE ORDER >>>>>>>>>>');
-dfsPreOrder(ex4Tree);
-console.log();
-console.log();
-console.log('<<<<<<<<< IN ORDER >>>>>>>>>>');
-dfsInOrder(ex4Tree);
-console.log();
-console.log();
-console.log('<<<<<<<<< POST ORDER >>>>>>>>>>');
-dfsPostOrder(ex4Tree);
+// console.log('<<<<<<<<< PRE ORDER >>>>>>>>>>');
+// dfsPreOrder(ex4Tree);
+// console.log();
+// console.log();
+// console.log('<<<<<<<<< IN ORDER >>>>>>>>>>');
+// dfsInOrder(ex4Tree);
+// console.log();
+// console.log();
+// console.log('<<<<<<<<< POST ORDER >>>>>>>>>>');
+// dfsPostOrder(ex4Tree);
+
+function maxProfit(arr) {
+    let min = arr[0];
+    let max = -Infinity;
+    let index = 0;
+    
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] < min) {
+            index = i;
+            min = arr[i];
+        }
+    }
+    
+    for (let j = index; j < arr.length; j++) {
+        if (arr[j] > max) {
+            max = arr[j];
+        }
+    }
+    
+    return max - min;
+}
+
+const prices = [128, 97, 121, 123, 98, 97, 105];
+console.log(maxProfit(prices));
